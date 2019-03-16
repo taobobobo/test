@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+<style>
+    *{
+        padding: 0;
+        margin: 0;
+    }
+body{
+    background: rgb(54, 54, 54);
+}
+.box{
+    width: 200px;
+    height: 200px;
+    position: relative;
+    margin: 200px auto 100px;
+    transform-style: preserve-3d;
+    /* animation: move 3s infinite; */
+    transform:rotateX(-10deg) rotateY(-10deg);
+    transition: all 1s;
+}
+.div{
+    position: absolute;
+    width: 200px;
+    height: 200px;
+    border: 1px solid rgb(160, 160, 160);
+    text-align: center;
+    line-height: 200px;
+    font-size: 40px; font-weight:bold;
+    transition: all 1s;
+}
+.div:nth-child(1){background : rgba(0,0,0, 0.5);transform:rotateX(270deg) translateZ(-100px);}
+.div:nth-child(2){background:  rgba(0,0,0, 0.5);transform:rotateX(90deg) translateZ(-100px);}
+.div:nth-child(3){background: rgba(0,0,0, 0.5);transform:rotateY(90deg) translateZ(100px);}
+.div:nth-child(4){background:  rgba(0,0,0, 0.5);transform:rotateY(90deg) translateZ(-100px);}
+.div:nth-child(5){background: rgba(0,0,0, 0.5);transform:translateZ(100px);}
+.div:nth-child(6){background:  rgba(0,0,0, 0.5);transform:translateZ(-100px);}
+ul{
+    width: 260px;
+    margin: 0 auto;
+}
+li{
+    cursor: pointer;
+    text-align: center;
+    line-height: 30px;
+    max-lines: 20px;
+    width: 30px;
+    height: 30px;
+    list-style: none;
+    float: left;
+    margin-left: 10px;
+    background: #fff;
+    font-weight: bold;
+}
+p{
+    color: #fff;
+}
+
+</style>    
+</head>
+<body>
+    <div class="box">
+        <div class="div" id="two"><p id="two-p">2</p></div>
+        <div class="div" id="three"><p id="three-p">3</p></div>
+        <div class="div" id="four"><p id="four-p">4</p></div>
+        <div class="div" id="five"><p id="five-p">5</p></div>
+        <div class="div" id="one"> <p id="one-p">1</p></div>
+        <div class="div" id="six"> <p id="six-p">6</p></div>
+    </div>
+    <ul>
+        <li id="one-li">1</li>
+        <li id="two-li">2</li>
+        <li id="three-li">3</li>
+        <li id="four-li">4</li>
+        <li id="five-li">5</li>
+        <li id="six-li">6</li>
+    </ul>
+</body>
+<script src="jquery-3.3.1.min.js"></script>
+<script>
+/* $(function(){
+function fen(){
+    $("#one").css("animation","fen1 1.5s");
+    $("#two").css("animation","fen2 1.5s");
+    $("#three").css("animation","fen3 1.5s");
+    $("#four").css("animation","fen4 1.5s");
+    $("#five").css("animation","fen5 1.5s");
+    $("#six").css("animation","fen6 1.5s");
+}    
+
+$("#one-li").click(function(){
+    $(".box").css("transform","rotateX(-10deg) rotateY(-10deg)");
+    fen();
+})    
+$("#two-li").click(function(){
+    $(".box").css("transform","rotateX(-100deg) rotateZ(-10deg)");
+    $("#two-p").css({"transform":"rotateX(180deg)"});
+    fen();
+}) 
+$("#three-li").click(function(){
+    $(".box").css("transform","rotateX(80deg) rotateZ(10deg)");
+    $("#three-p").css("transform","rotateX(180deg)");
+    fen();
+}) 
+$("#four-li").click(function(){
+    $(".box").css("transform","rotateX(-10deg) rotateY(-105deg)");
+    $("#four-p").css({"color":"#fff"});
+    fen();
+    
+})
+$("#five-li").click(function(){
+    $(".box").css("transform","rotateX(-10deg) rotateY(-285deg)")
+    $("#five-p").css("transform","rotateY(180deg)");
+    fen();
+}) 
+$("#six-li").click(function(){
+    $(".box").css("transform","rotateX(-10deg) rotateY(-195deg)");
+    $("#six-p").css("transform","rotateY(180deg)");
+    fen();
+}) 
+}) */
+
+var box=document.getElementsByClassName("box")[0];    
+var four=document.getElementById("four");
+var six=document.getElementById("six");
+var five=document.getElementById("five");
+var three=document.getElementById("three");
+var two=document.getElementById("two");
+var one=document.getElementById("one");
+
+var btn=document.getElementsByTagName("li");
+var p=document.getElementsByTagName("p");
+btn[3].onclick=function(){
+    box.style.transform="rotateX(-10deg) rotateY(-115deg)";
+}
+btn[5].onclick=function(){
+    box.style.transform="rotateX(-10deg) rotateY(-205deg)";
+    p[5].style.transform="rotateY(180deg)";
+    p[5].style.color="#FFF";
+}
+btn[4].onclick=function(){
+    box.style.transform="rotateX(-10deg) rotateY(-295deg)";
+    p[3].style.transform="rotateY(180deg)";
+}
+btn[0].onclick=function(){
+    box.style.transform="rotateX(-10deg) rotateY(-30deg)";
+}
+btn[1].onclick=function(){
+    box.style.transform="rotateX(-100deg) rotateZ(-20deg)";
+    p[0].style.transform="rotateX(180deg)";
+}
+btn[2].onclick=function(){
+    box.style.transform="rotateX(80deg) rotateZ(20deg)";
+    p[1].style.transform="rotateX(180deg)";
+}
+</script>
+</html>
